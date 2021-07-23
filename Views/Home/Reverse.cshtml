@@ -1,0 +1,48 @@
+﻿@model UFOTofuMVC.Models.Palindrome
+
+<div class="container mt-5">
+    <div class="row gy-2 h-100 row-cols-1 row-cols-md-2">
+        <div class="col border-2 border-end">
+            <h1 class="display-5 fw-bold lh-1 mb-3">Palindrome Check/(String Reversal) (aka. UFO TOFU)</h1>
+            <h4 class="lead mb-2">
+                Here I reverse a string and test it as a palindrome as I did in the javascript exercise. But this time I do it with C# using the MVC pattern.
+                Write a program that displays the reversal of an input string of characters. Display the reversal in <strong style="color: green;">GREEN</strong>
+                and state whether it is a Palindrome or not.
+            </h4>
+            <h5>
+                * A palindrome is a word, phrase, or
+                sequence that reads the same backward as forward, e.g., <span style="font-style:italic">ufotofu</span>
+            </h5>
+            <h2 class="mt-5 border-bottom border-2">Instructions</h2>
+            <p>
+                Enter a word or sentence. Press the button and the input will be evaluated on whether it is a palindrome or not.
+                The resulting reversal of the string will also appear.
+            </p>
+        </div>
+        <div class="col">
+            <h5>Enter A Phrase Or Word To Check</h5>
+            @*Form goes here*@
+            <form asp-action="Reverse" asp-controller="Home" method="post" class="row gx-3 gy-2">
+                <div class="col">
+                    <input asp-for="InputWord" placeholder="Enter A String" class="form-control " aria-label="Enter a string" value="@Model.InputWord">
+                </div>
+                <div class="py-2 col-12 d-flex align-items-center justify-content-start justify-content-lg-end">
+                    <button type="submit" id="btnSubmit" class="btn btn-dark btn-lg">Palindrome Test</button>
+                </div>
+            </form>
+
+            <h5 class="border-bottom border-2 mt-5">Reversed Result</h5>
+
+            <div class="col">
+                <p class="form-control">@Model.RevWord</p>
+            </div>
+
+            <h2 class="mt-5 border-bottom border-2">Palindrome Result</h2>
+            <div class="table-responsive">
+                <p id="results">
+                    @Model.Message
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
